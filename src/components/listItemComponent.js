@@ -1,19 +1,16 @@
 import React, { Component } from "react";
 
 class TodoListItem extends Component {
-    constructor(props) {
-      super(props);
-    }
     onClickClose = () => {
-      var index = parseInt(this.props.index, 10);
+      const index = this.props.index;
       this.props.removeItem(index);
     }
     onClickDone = () => {
-      var index = parseInt(this.props.index, 10);
+      const index = this.props.index;
       this.props.markTodoDone(index);
     }
     render = () => {
-      var todoClass = this.props.item.done ? "todoItem done" : "todoItem undone";
+      const todoClass = this.props.item.done ? "todoItem done" : "todoItem undone";
       return (
         <li className="list-group-item ">
           <div className={todoClass}>
