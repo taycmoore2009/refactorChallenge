@@ -3,18 +3,16 @@ import React, { Component } from "react";
 class TodoListItem extends Component {
     constructor(props) {
       super(props);
-      this.onClickClose = this.onClickClose.bind(this);
-      this.onClickDone = this.onClickDone.bind(this);
     }
-    onClickClose() {
+    onClickClose = () => {
       var index = parseInt(this.props.index, 10);
       this.props.removeItem(index);
     }
-    onClickDone() {
+    onClickDone = () => {
       var index = parseInt(this.props.index, 10);
       this.props.markTodoDone(index);
     }
-    render() {
+    render = () => {
       var todoClass = this.props.item.done ? "todoItem done" : "todoItem undone";
       return (
         <li className="list-group-item ">

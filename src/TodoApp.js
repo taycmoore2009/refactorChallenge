@@ -10,13 +10,10 @@ import "./App.css";
 class TodoApp extends Component {
   constructor(props) {
     super(props);
-    this.addItem = this.addItem.bind(this);
-    this.removeItem = this.removeItem.bind(this);
-    this.markTodoDone = this.markTodoDone.bind(this);
     this.state = { todoItems: [], showTimer: false };
   }
 
-  addItem(todoItem) {
+  addItem = (todoItem) => {
     var todoItems = this.state.todoItems;
     todoItems.unshift({
       index: todoItems.length + 1,
@@ -27,13 +24,13 @@ class TodoApp extends Component {
     this.setState({ todoItems: todoItems });
   }
 
-  removeItem(itemIndex) {
+  removeItem = (itemIndex) => {
     var todoItems = this.state.todoItems;
     todoItems.splice(itemIndex, 1);
     this.setState({ todoItems: todoItems });
   }
 
-  markTodoDone(itemIndex) {
+  markTodoDone = (itemIndex) => {
     const todoItems = this.state.todoItems;
     var todo = todoItems[itemIndex];
     todoItems.splice(itemIndex, 1);
@@ -42,7 +39,7 @@ class TodoApp extends Component {
     this.setState({ todoItems: todoItems });
   }
 
-  render() {
+  render = () => {
     return (
       <div id="main">
         <h1>Todo list</h1>

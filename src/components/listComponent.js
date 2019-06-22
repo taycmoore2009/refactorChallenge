@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TodoListItem from './listItemComponent.js'
 
 class TodoList extends Component {
-    render() {
+    render = () => {
       var items = this.props.items.map((item, index) => {
         return (
           <TodoListItem
