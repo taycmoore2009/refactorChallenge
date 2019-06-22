@@ -15,22 +15,11 @@ class TodoApp extends Component {
   addItem = (todoItem) => {
     const todoItems = this.state.todoItems;
     todoItems.unshift(todoItem);
-    
+
     this.setState({ todoItems: todoItems });
   }
 
-  removeItem = (itemIndex) => {
-    var todoItems = this.state.todoItems;
-    todoItems.splice(itemIndex, 1);
-    this.setState({ todoItems: todoItems });
-  }
-
-  markTodoDone = (itemIndex) => {
-    const todoItems = this.state.todoItems;
-    var todo = todoItems[itemIndex];
-    todoItems.splice(itemIndex, 1);
-    todo.done = !todo.done;
-    todo.done ? todoItems.push(todo) : todoItems.unshift(todo);
+  updateList = (todoItems) => {
     this.setState({ todoItems: todoItems });
   }
 
@@ -46,8 +35,7 @@ class TodoApp extends Component {
         {this.state.showTimer ? <Timer /> : null}
         <TodoList
           items={this.state.todoItems}
-          removeItem={this.removeItem}
-          markTodoDone={this.markTodoDone}
+          updateList={this.updateList}
         />
         <TodoForm 
           addItem={this.addItem}

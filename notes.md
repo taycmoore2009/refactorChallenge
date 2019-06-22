@@ -24,3 +24,8 @@ listItemComponent.js:
 formComponent.js
 - index was uncessary to track, also it was just wrong because you could get duplicate indexes
 - new item creation should be handled in the form component instead of app enterence for easier readability
+
+listComponent.js
+- Moved list item logic into this file
+- Might be better to move control of mark/unmark of list item into listItemComponent.js
+- I really don't like the basic logic around class checking on the done for list items, if I have more time later I might update that but I don't want to waste more time on it already.
