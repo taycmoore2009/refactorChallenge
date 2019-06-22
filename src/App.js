@@ -4,7 +4,7 @@ import "./App.css";
 import jquery from 'jquery';
 const $ = window.$ = window.jQuery = jquery;
 
-class TodoList extends React.Component {
+class TodoList extends Component {
   render() {
     var items = this.props.items.map((item, index) => {
       return (
@@ -21,18 +21,18 @@ class TodoList extends React.Component {
   }
 }
 
-class TodoListItem extends React.Component {
+class TodoListItem extends Component {
   constructor(props) {
     super(props);
     this.onClickClose = this.onClickClose.bind(this);
     this.onClickDone = this.onClickDone.bind(this);
   }
   onClickClose() {
-    var index = parseInt(this.props.index);
+    var index = parseInt(this.props.index, 10);
     this.props.removeItem(index);
   }
   onClickDone() {
-    var index = parseInt(this.props.index);
+    var index = parseInt(this.props.index, 10);
     this.props.markTodoDone(index);
   }
   render() {
@@ -46,7 +46,7 @@ class TodoListItem extends React.Component {
             onClick={this.onClickDone}
           />
           <span>{this.props.item.value}</span>
-          <span class='date'>{`Added: ${this.props.item.date}`}</span>
+          <span className='date'>{`Added: ${this.props.item.date}`}</span>
           <button type="button" className="close" onClick={this.onClickClose}>
             &times;
           </button>
@@ -56,7 +56,7 @@ class TodoListItem extends React.Component {
   }
 }
 
-class TodoForm extends React.Component {
+class TodoForm extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -90,13 +90,13 @@ class TodoForm extends React.Component {
   }
 }
 
-class Timer extends React.Component {
+class Timer extends Component {
   state = {count: 0}
   timer = null;
 
   updateTimer = () => {
     this.setState({
-      count: this.state.count += 1
+      count: this.state.count + 1
     });
   }
 
@@ -115,17 +115,14 @@ class Timer extends React.Component {
   }
 }
 
-class TodoHeader extends React.Component {
-  constructor() {
-    super();
-  }
+class TodoHeader extends Component {
 
   render() {
     return <h1>Todo list</h1>;
   }
 }
 
-class TodoApp extends React.Component {
+class TodoApp extends Component {
   constructor(props) {
     super(props);
     this.addItem = this.addItem.bind(this);
