@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 
 class Timer extends Component {
-    state = {count: 0}
-    timer = null;
+    constructor() {
+        super();
+        this.state = {count: 0}
+    }
   
     updateTimer = () => {
-      this.setState({
-        count: this.state.count + 1
-      });
+      const newCount = this.state.count +1;
+      this.setState({count: newCount});
     }
   
     componentDidMount = () => {
-      const that = this;
-      that.timer = setInterval(that.updateTimer, 1000);
+      setInterval(this.updateTimer, 1000);
     }
   
     render = () => {
