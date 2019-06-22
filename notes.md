@@ -20,3 +20,7 @@ listItemComponent.js:
 - Also, if we change the data type of `index` from something it's not expecting, we might run into issues while attempting to modify list
 - Changed `var` to `const`
 - Removed `constructor` (not needed)
+
+formComponent.js
+- index was uncessary to track, also it was just wrong because you could get duplicate indexes
+- new item creation should be handled in the form component instead of app enterence for easier readability

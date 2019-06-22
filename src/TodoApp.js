@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import moment from "moment";
 
 import TodoList from './components/listComponent'
 import TodoForm from './components/formComponent'
@@ -14,13 +13,9 @@ class TodoApp extends Component {
   }
 
   addItem = (todoItem) => {
-    var todoItems = this.state.todoItems;
-    todoItems.unshift({
-      index: todoItems.length + 1,
-      value: todoItem.newItemValue,
-      date: moment().format("ll"),
-      done: false
-    });
+    const todoItems = this.state.todoItems;
+    todoItems.unshift(todoItem);
+    
     this.setState({ todoItems: todoItems });
   }
 
@@ -54,7 +49,9 @@ class TodoApp extends Component {
           removeItem={this.removeItem}
           markTodoDone={this.markTodoDone}
         />
-        <TodoForm addItem={this.addItem} />
+        <TodoForm 
+          addItem={this.addItem}
+        />
       </div>
     );
   }

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import jquery from 'jquery';
+import moment from "moment";
+
 const $ = window.$ = window.jQuery = jquery;
 
 class TodoForm extends Component {
@@ -7,15 +9,20 @@ class TodoForm extends Component {
       super(props);
       this.onSubmit = this.onSubmit.bind(this);
     }
+    
     componentDidMount = () => {
       $("#itemName").focus();
     }
     onSubmit = (event) => {
       event.preventDefault();
-      var newItemValue = $("#itemName").val();
+      const newItemValue = $("#itemName").val();
   
       if (newItemValue) {
-        this.props.addItem({ newItemValue });
+        this.props.addItem({
+            value: newItemValue,
+            date: moment().format("ll"),
+            done: false
+        });
         $('#todoForm').trigger("reset");
       }
     }
