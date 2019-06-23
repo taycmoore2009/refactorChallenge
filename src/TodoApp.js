@@ -12,6 +12,10 @@ class TodoApp extends Component {
     this.state = { todoItems: [], showTimer: false };
   }
 
+  /**
+   * Add new item to begining of todoItems list
+   * todoItem {object:todoItem}
+   */
   addItem = (todoItem) => {
     const todoItems = this.state.todoItems;
     todoItems.unshift(todoItem);
@@ -19,6 +23,10 @@ class TodoApp extends Component {
     this.setState({ todoItems: todoItems });
   }
 
+  /**
+   * Update todoItems list with a new list
+   * todoItems {array}
+   */
   updateList = (todoItems) => {
     this.setState({ todoItems: todoItems });
   }

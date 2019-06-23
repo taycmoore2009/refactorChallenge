@@ -3,6 +3,10 @@ import TodoListItem from './listItemComponent.js'
 
 class TodoList extends Component {
 
+  /**
+   * create updated list with individual item done status updted
+   * itemIndex {number}
+   */
   markTodoDone = (itemIndex) => {
     const todoItems = this.props.items;
     const todo = todoItems[itemIndex];
@@ -15,6 +19,10 @@ class TodoList extends Component {
     this.props.updateList(todoItems);
   }
 
+  /**
+   * create updated list with item removed based on index
+   * itemIndex {number}
+   */
   removeItem = (itemIndex) => {
     const todoItems = this.props.items;
 

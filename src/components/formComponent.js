@@ -10,9 +10,17 @@ class TodoForm extends Component {
       this.onSubmit = this.onSubmit.bind(this);
     }
     
+    /**
+     * When the form loads, focus on input field
+     */
     componentDidMount = () => {
       $("#itemName").focus();
     }
+
+    /**
+     * When form submit triggered, add new item if input isn't empty
+     * event {domEvent}
+     */
     onSubmit = (event) => {
       event.preventDefault();
       const newItemValue = $("#itemName").val();
@@ -26,6 +34,7 @@ class TodoForm extends Component {
         $('#todoForm').trigger("reset");
       }
     }
+    
     render = () => {
       return (
         <form ref="form" id="todoForm" onSubmit={this.onSubmit} className="form-inline">
